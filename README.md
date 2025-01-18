@@ -14,11 +14,21 @@ git clone https://github.com/nsut/moksha-website.git
 cd moksha-website
 ```
 
+
+
 - Install dependencies:
 
 ```
 npm install
 ```
+
+- Add these fields in .env.local
+```    
+AUTH_SECRET=''
+GOOGLE_CLIENT_SECRET=''
+GOOGLE_CLIENT_ID=''
+```
+
 
 - Start the development server:
 
