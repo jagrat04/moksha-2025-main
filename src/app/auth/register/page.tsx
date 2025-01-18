@@ -47,7 +47,7 @@ const page = () => {
         </form>
 
         <div className='mt-2 md:text-base text-xs md:font-semibold font-medium'>
-          ALREADY HAVE AN ACCOUNT? <Link className='md:font-medium font-light' href={'/auth/login'}> LOG IN </Link>
+          ALREADY HAVE AN ACCOUNT? <Link href={'/auth/login'}> LOG IN </Link>
         </div>
       </div>
     </div>

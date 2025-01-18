@@ -27,7 +27,7 @@ const page = () => {
           <div className="flex-grow border-t border-[#f9f9f9]"></div>
         </div>
         <div className='mt-2 md:text-base text-xs md:font-semibold font-medium'>
-          REMEMBERED YOUR PASSWORD? <Link className='md:font-medium font-light' href={'/auth/login'}> LOG IN </Link>
+          REMEMBERED YOUR PASSWORD? <Link href={'/auth/login'}> LOG IN </Link>
         </div>
       </div>
     </div>

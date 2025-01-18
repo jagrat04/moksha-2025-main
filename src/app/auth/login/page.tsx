@@ -42,7 +42,7 @@ const page = () => {
         </form>
 
         <div className='mt-2 md:text-base text-xs md:font-semibold font-medium'>
-          DON'T HAVE A ACCOUNT?<Link className='md:font-medium font-light' href={'/auth/register'}> SIGN UP </Link>
+          DON'T HAVE A ACCOUNT?<Link href={'/auth/register'}> SIGN UP </Link>
         </div>
       </div>
     </div>

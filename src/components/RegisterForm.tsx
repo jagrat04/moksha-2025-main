@@ -27,7 +27,7 @@ const RegisterForm = () => {
                     htmlFor="fullname"
                     className="block md:text-lg text-sm font-medium leading-6"
                 >
-                    FULLNAME*
+                    FULL NAME*
                 </label>
                 <input
                     id="fullname"
