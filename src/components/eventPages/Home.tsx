@@ -12,14 +12,15 @@ export default function Home() {
   return (
     <div className="h-full w-screen relative">
       <Image
-        src="/assets/events/event-home-bg.png"
+        src="/assets/events/home-bg.png"
         alt="Event"
         fill={true}
+        security="restricted"
         quality={100}
         priority={true}
         className="object-cover h-full w-full"
       />
-      <div className="relative z-10 h-full w-full pt-20">
+      <div className="relative z-10 h-full w-full pt-16 md:pt-14 lg:pt-12">
         <h1
           className={`${cinzel.className} text-[#FFDE7D] text-center text-5xl md:text-6xl lg:text-7xl`}
         >
@@ -39,9 +40,9 @@ export default function Home() {
           ))}
         </div>
         <div className=" flex justify-center mt-10 relative">
-          <EventHomeCard className="top-16 left-6 transition-transform duration-300 ease-in-out hover:-translate-y-4" />
+          <EventHomeCard className="top-16 left-8 lg:left-6 transition-transform duration-300 ease-in-out hover:-translate-y-4" />
           <EventHomeCard className="z-10 transition-transform duration-300 ease-in-out hover:-translate-y-4" />
-          <EventHomeCard className="top-16 right-6 transition-transform duration-300 ease-in-out hover:-translate-y-4" />
+          <EventHomeCard className="top-16 right-8 lg:right-6 transition-transform duration-300 ease-in-out hover:-translate-y-4" />
         </div>
       </div>
       <NavMenu className="" />
