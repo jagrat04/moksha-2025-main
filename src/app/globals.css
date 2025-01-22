@@ -2,3 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+@layer utilities {
+    .scrollbar-event-page::-webkit-scrollbar {
+      width: 5px; 
+      height: 5px; 
+    }
+  
+    .scrollbar-event-page::-webkit-scrollbar-thumb {
+      background-color: #D77519; 
+      border-radius: 100%; 
+    }
+  
+    .scrollbar-event-page::-webkit-scrollbar-track {
+      background-color: #A27700; 
+    }
+  
+    .scrollbar-event-page:hover::-webkit-scrollbar-thumb {
+      background-color: #69390c; 
+    }
+  }

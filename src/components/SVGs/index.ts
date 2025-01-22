@@ -1,2 +1,3 @@
 import AngelDayText from "./AngelDayText";
-export { AngelDayText };
+import MokshaLogo from "./MokshaLogo";
+export { AngelDayText , MokshaLogo };

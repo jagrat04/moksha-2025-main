@@ -10,7 +10,7 @@ const cinzel = Cinzel({
 
 export default function Home() {
   return (
-    <div className="h-full w-screen relative">
+    <div className="h-full w-screen relative" id="event-home">
       <Image
         src="/assets/events/home-bg.png"
         alt="Event"
@@ -29,10 +29,10 @@ export default function Home() {
         <div className="w-10/12 mx-auto mt-4 lg:mt-10 flex justify-center flex-wrap gap-2 md:gap-6 lg:gap-8">
           {Array.from({ length: 3 }).map((_, i) => (
             <Link
-              href={"#"}
+              href={"#event-day-" + (i + 1)}
               key={i}
               className={`flex flex-col items-center w-10/12 max-w-[200px]  md:max-w-[340px] focus:outline-none ${
-                i === 1 ? " sm:max-lg:order-1" : "order-" + i
+                i === 1 ? " sm:max-md   :order-1" : "order-" + i
               }`}
             >
               <AngelDayText text={`Day ${i + 1}`} />
