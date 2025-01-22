@@ -51,7 +51,7 @@ export default function EventCard({
       </div>
 
       <div
-        className={`absolute top-0 w-full aspect-video border-[#874A11] border-2 rounded-xl transform transition-all duration-300 group-hover:z-10 opacity-0 group-hover:opacity-100 group-hover:aspect-square group-hover:h-auto group-hover:w-full sm:group-hover:w-[40vw] lg:group-hover:w-[30vw] shadow-xl shadow-black/80
+        className={`absolute top-0 w-full aspect-video border-[#874A11] border-2 rounded-xl transform transition-all duration-300 group-hover:z-10 opacity-0 group-hover:opacity-100 group-hover:aspect-square group-hover:h-auto group-hover:w-full sm:group-hover:w-[40vw] lg:group-hover:w-[24vw] shadow-xl shadow-black/80
         ${
           index % 3 === 2
             ? "md:right-0"
