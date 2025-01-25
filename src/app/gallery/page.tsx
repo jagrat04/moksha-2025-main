@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 
 export default function Page() {
-    const [scrollX, setScrollX] = useState(0);
+    const [scrollY, setScrollY] = useState(0);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [leftClicked, setLeftClicked] = useState(false);
     const [rightClicked, setRightClicked] = useState(false);
@@ -41,32 +41,31 @@ export default function Page() {
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrollX(window.scrollX);
+            setScrollY(window.scrollY);
         };
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Calculate door transform and opacity values based on scroll
-    const doorTransformValue = Math.max(0, (scrollX - 500) * 5);
-    // Lower threshold to 510 and make it more immediate
-    const doorOpacity = scrollX < 510 ? 1 : 0;
-    const overlayOpacity = Math.max(0, Math.min((scrollX - 500) * 0.1, 1));
+    // Calculate door transform and opacity values based on vertical scroll
+    const doorTransformValue = Math.max(0, (scrollY - 500) * 5);
+    const doorOpacity = scrollY < 510 ? 1 : 0;
+    const overlayOpacity = Math.max(0, Math.min((scrollY - 500) * 0.1, 1));
 
-    console.log('scrollX:', scrollX, 'doorOpacity:', doorOpacity); // Debug values
+    console.log('scrollY:', scrollY, 'doorOpacity:', doorOpacity); // Debug values
 
     return (
         <>
             {/* Fixed background container */}
-            <div className="fixed inset-0 bg-cover bg-center" 
+            <div className="fixed inset-0 bg-cover bg-center overflow-hidden" 
                 style={{ backgroundImage: "url(/assets/gallery/background.png)" }} 
             />
 
             {/* Scrollable content container */}
-            <div className="relative w-[300vw] h-screen overflow-x-auto">
-                <div className="flex flex-col justify-center items-center h-full">
-                    <div className="fixed top-[47%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center">
+            <div className="relative h-[300vh] overflow-x-hidden">
+                <div className="flex flex-col justify-start items-center min-h-full">
+                    <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center">
                         <img 
                             src="/assets/gallery/left-door.png"
                             alt="Left Door"
@@ -148,7 +147,7 @@ export default function Page() {
                         <img 
                             src="https://s3-alpha-sig.figma.com/img/6fc5/1656/084dc0821177da5ac8614f94ad561ef8?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UMmFg8Jfcp5iGCJ-5~NRn0oeFVoAKu2RQC-AFIHYE~rjeB1yUIZkVNUvgFXhwfY9WmoLqe-vXFazcpGOt9Gx8JZICRaiKr4yjnCj6CFLsYuXQzZUuU3TZft-yeRHkVxO8M14fTAfGBHFFiiuox9ScBytjUQEIr19mL8vsQKwqZkj1-UbR5kHN~hOeshE04IQNCprx245QfKZzOxdeVa93b715kfBUQTDHdFO26wp5ItEO0akZkB8PSsoZKgZt~ST80KfKnLr7aRV~BVZkr9VA9CRgrB-ONBWKlOmb2IyinbrbISZDc2KAVWk6QkhleR~jdSAKk0sHeSAPxgJDBOo6g__" 
                             alt="Fog"
-                            className="w-[600vw] h-[30vh] object-contain opacity-[0.29] scale-[7]"
+                            className="w-screen h-[30vh] object-contain opacity-[0.29] scale-[7]"
                         />
                     </div>
                 </div>
@@ -161,7 +160,7 @@ export default function Page() {
                     alt="Left Image"
                     className="fixed bottom-0 left-0 w-72 h-72 object-contain transition-opacity duration-500 scale-x-[-1] -mb-12"
                     style={{
-                        opacity: Math.min(scrollX / 300, 1)
+                        opacity: Math.min(scrollY / 300, 1)
                     }}
                 />
                 <img 
@@ -169,7 +168,7 @@ export default function Page() {
                     alt="Right Image"
                     className="fixed bottom-0 right-0 w-72 h-72 object-contain transition-opacity duration-500 -mb-12"
                     style={{
-                        opacity: Math.min(scrollX / 300, 1)
+                        opacity: Math.min(scrollY / 300, 1)
                     }}
                 />
             </div>
