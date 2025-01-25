@@ -14,6 +14,22 @@ const CustomCursor = () => {
       
       const newPosition = { x: e.clientX, y: e.clientY };
       setPosition(newPosition);
+      var arr = [1, 0.9, 0.8, 0.5, 0.2];
+
+      arr.forEach(function(i) {
+        var x = (1 - i) * 75;
+        var star = document.createElement('div');
+
+        star.className = 'star';
+        star.style.top = e.clientY + Math.round(Math.random() * x - x / 2) + 'px';
+        star.style.left = e.clientX + Math.round(Math.random() * x - x / 2) + 'px';
+
+        document.body.appendChild(star);
+
+        window.setTimeout(function() {
+          document.body.removeChild(star);
+        }, Math.round(Math.random() * i * 600));
+      });
     };
 
   const handleMouseOut = (e: MouseEvent) => {
@@ -44,12 +60,12 @@ const CustomCursor = () => {
   return (
     <div
       style={{
-        top: position.y + 48,
-        left: position.x - 80,
+        top: position.y + 35,
+        left: position.x - 60,
         backgroundImage: `url(/assets/cursor/wand.gif)`,
         
-        width: '250px',
-        height: '140px',
+        width: '167px',
+        height: '93px',
         display: visible ? 'block' : 'none',
       }}
       ref={cursorRef}
