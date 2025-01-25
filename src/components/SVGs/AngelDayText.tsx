@@ -14,7 +14,7 @@ const AngelDayText = ({ text, ...props } : { text: string } & SVGProps<SVGSVGEle
     xmlns="http://www.w3.org/2000/svg"
     {...props}
     overflow={"visible"}
-    className={`${props.className} w-10/12 group transition-transform duration-300 ease-in-out group-hover:-translate-y-8 pr-6`}
+    className={`${props.className} w-10/12 group transition-transform duration-300 ease-in-out group-hover:-translate-y-8 pr-4 sm:pr-6`}
   >
     <g id="Frame 12">
       <g id="Group 31">
