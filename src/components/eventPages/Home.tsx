@@ -4,6 +4,7 @@ import { AngelDayText } from "../SVGs";
 import NavMenu from "../includes/NavMenu";
 import EventHomeCard from "../includes/EventHomeCard";
 import Link from "next/link";
+import BackgroundPageImg from "../includes/BackgroudPageImg";
 const cinzel = Cinzel({
   subsets: ["latin"],
 });
@@ -11,41 +12,35 @@ const cinzel = Cinzel({
 export default function Home() {
   return (
     <div className="h-full w-screen relative" id="event-home">
-      <Image
-        src="/assets/events/home-bg.png"
-        alt="Event"
-        fill={true}
-        security="restricted"
-        quality={100}
-        priority={true}
-        className="object-cover h-full w-full"
+      <BackgroundPageImg
+        mobileSrc="/assets/events/home-bg-mobile.png"
+        desktopSrc="/assets/events/home-bg-desktop.png"
+        alt="Event Home Page Background"
       />
-      <div className="relative z-10 h-full w-full pt-16 md:pt-14 lg:pt-12">
+      <div className="relative z-[2] h-full w-full md:pt-14 lg:pt-12 max-sm:flex max-sm:flex-col justify-center items-center">
         <h1
-          className={`${cinzel.className} text-[#FFDE7D] text-center text-5xl md:text-6xl lg:text-7xl`}
+          className={`${cinzel.className} text-[#FFDE7D] text-center text-6xl lg:text-7xl`}
         >
           Events
         </h1>
-        <div className="w-10/12 mx-auto mt-4 lg:mt-10 flex justify-center flex-wrap gap-2 md:gap-6 lg:gap-8">
+        <div className="max-sm:pb-12 max-sm:h-2/5 mx-auto mt-4 lg:mt-10 max-sm:mt-8 max-sm:flex max-sm:flex-col justify-center items-center grid grid-cols-3 gap-4 sm:gap-6 md:gap-4 lg:gap-4">
           {Array.from({ length: 3 }).map((_, i) => (
             <Link
               href={"#event-day-" + (i + 1)}
               key={i}
-              className={`flex flex-col items-center w-10/12 max-w-[200px]  md:max-w-[340px] focus:outline-none ${
-                i === 1 ? " sm:max-md   :order-1" : "order-" + i
-              }`}
+              className={`w-full min-w-[250px]  max-w-[300px] md:max-w-[350px] mx-auto focus:outline-none flex justify-center items-center`}
             >
               <AngelDayText text={`Day ${i + 1}`} />
             </Link>
           ))}
         </div>
-        <div className=" flex justify-center mt-10 relative">
+        <div className="hidden sm:flex justify-center mt-10 relative">
           <EventHomeCard className="top-16 left-8 lg:left-6 transition-transform duration-300 ease-in-out hover:-translate-y-4" />
           <EventHomeCard className="z-10 transition-transform duration-300 ease-in-out hover:-translate-y-4" />
           <EventHomeCard className="top-16 right-8 lg:right-6 transition-transform duration-300 ease-in-out hover:-translate-y-4" />
         </div>
       </div>
-      <NavMenu className="" />
+      <NavMenu className="max-sm:bottom-8" />
     </div>
   );
 }

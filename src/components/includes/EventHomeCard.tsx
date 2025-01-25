@@ -13,7 +13,7 @@ export default function EventHomeCard(props: HTMLAttributes<HTMLDivElement>) {
       {...props}
       className={`${props.className} border-[#AB7D00] border-2 rounded-xl relative aspect-[9/16] w-full max-w-60`}
     >
-      <Image src="/assets/events/card-home.png" alt="Angel Logo" fill={true} sizes="(max-width: 640px) 100%, 640px" priority={true}/>
+      <Image src="/assets/events/card-home.png" alt="Angel Logo" fill={true} sizes="(max-width: 640px) 100%, 640px" priority={false}/>
       <div
         style={{
           position: "absolute",

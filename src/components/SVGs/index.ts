@@ -1,3 +1,5 @@
 import AngelDayText from "./AngelDayText";
 import MokshaLogo from "./MokshaLogo";
-export { AngelDayText , MokshaLogo };
+import RightWing from "./RightWing";
+import LeftWing from "./LeftWing";
+export { AngelDayText , MokshaLogo, RightWing, LeftWing };

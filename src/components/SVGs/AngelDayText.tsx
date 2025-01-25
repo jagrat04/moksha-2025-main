@@ -14,7 +14,7 @@ const AngelDayText = ({ text, ...props } : { text: string } & SVGProps<SVGSVGEle
     xmlns="http://www.w3.org/2000/svg"
     {...props}
     overflow={"visible"}
-    className={`${props.className} w-10/12 group transition-transform duration-300 ease-in-out group-hover:-translate-y-8`}
+    className={`${props.className} w-10/12 group transition-transform duration-300 ease-in-out group-hover:-translate-y-8 pr-6`}
   >
     <g id="Frame 12">
       <g id="Group 31">
@@ -36,7 +36,7 @@ const AngelDayText = ({ text, ...props } : { text: string } & SVGProps<SVGSVGEle
             height={78.0189}
             rx={39.0094}
             stroke="url(#paint0_linear_2004_432)"
-            strokeWidth={3}
+            strokeWidth={5}
             shapeRendering="crispEdges"
           />
         </g>
@@ -46,7 +46,7 @@ const AngelDayText = ({ text, ...props } : { text: string } & SVGProps<SVGSVGEle
           dominantBaseline="middle"
           textAnchor="middle"
           fill="#FFDE7D"
-          className={`${cinzel.className} text-4xl md:text-5xl lg:text-6xl transition-transform duration-300 ease-in-out group-hover:-translate-y-8`}
+          className={`${cinzel.className} text-6xl transition-transform duration-300 ease-in-out group-hover:-translate-y-8`}
         >
           {text}
         </text>

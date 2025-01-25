@@ -37,7 +37,7 @@ export default function NavMenu(props: HTMLAttributes<HTMLDivElement>) {
   return (
     <nav
       {...props}
-      className={`absolute z-10 bottom-2 left-2 sm:left-4 md:left-10 ${props.className} flex flex-col items-center text-white p-10`}
+      className={`absolute z-[4] bottom-2 left-2 sm:left-4 md:left-10 ${props.className} flex flex-col items-center text-white p-10`}
     >
       <ul className="flex flex-col items-start gap-2 sm:gap-3 md:gap-4">
         {navItems.map((item) => (
