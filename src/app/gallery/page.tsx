@@ -126,7 +126,11 @@ export default function Page() {
                         <img 
                             src="/assets/gallery/diamond-left.png"
                             alt="left-door-diamond"
-                            className="absolute -bottom-12 left-[-1vw] w-48 h-48 object-contain z-20"
+                            className="absolute w-[25%] h-auto object-contain z-20"
+                            style={{
+                                bottom: '-5%',  // Moved lower (was 10%)
+                                left: '3%'    // Moved more to the left (was 15%)
+                            }}
                         />
                         <img 
                             src="/assets/gallery/move.png"
@@ -140,7 +144,11 @@ export default function Page() {
                         <img 
                             src="/assets/gallery/diamond-left.png"
                             alt="right-door-diamond"
-                            className="absolute -bottom-10 right-[2vw] w-48 h-48 object-contain z-20 scale-x-[-1]"
+                            className="absolute w-[25%] h-auto object-contain z-20 scale-x-[-1]"
+                            style={{
+                                bottom: '-5%',  // Moved lower (was 10%)
+                                right: '5%'   // Moved more to the right (was 15%)
+                            }}
                         />
                     </div>
                     <div className="fixed bottom-0 left-1/2 -translate-x-1/2">
