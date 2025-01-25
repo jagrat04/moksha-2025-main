@@ -44,16 +44,16 @@ const CustomCursor = () => {
   return (
     <div
       style={{
-        top: position.y,
-        left: position.x,
-        backgroundImage: `url(/assets/cursor/phoenix.gif)`,
-        backgroundSize: 'cover',
-        width: '200px',
-        height: '200px',
+        top: position.y + 48,
+        left: position.x - 80,
+        backgroundImage: `url(/assets/cursor/wand.gif)`,
+        
+        width: '250px',
+        height: '140px',
         display: visible ? 'block' : 'none',
       }}
       ref={cursorRef}
-      className="fixed pointer-events-none transition-transform -translate-x-1/2 -translate-y-1/2 z-50"
+      className="fixed pointer-events-none bg-cover transition-transform -translate-x-1/2 -translate-y-1/2 z-50"
     />
   );
 };
