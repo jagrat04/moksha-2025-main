@@ -52,7 +52,7 @@ export default function LoadingPage({
               onLoadedMetadata={handelVideoLoad}
               onError={handleVideoError}
             >
-              <source src="/assets/events/fire-wings.mp4" type="video/mp4" />
+              <source src="https://res.cloudinary.com/dxtfen6z8/video/upload/v1737764396/fire-wings_lseggn.mp4" type="video/mp4" />
             </video>
           </Suspense>
         </div>
