@@ -2,6 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  overflow-x: hidden;
+  margin: 0;
+}
+
+/* Default */
+.cloudAbout {
+  background-size: 100% 40%;
+}
+
+.bottomAbout {
+  background-size: 100% 40%;
+}
+
+.kauji {
+  background-size: 100% 60%;
+}
+
+.mountainTopEvents {
+  background-size: 60% 35%;
+}
+
+/* Medium Screens (md)*/
+@media (min-width: 768px) {
+  .kauji {
+    background-size: 80% 80%;
+  }
+
+  .mountainTopEvents {
+    background-size: 70% 30%;
+  }
+}
+
+/* Large screens (lg) */
+@media (min-width: 1024px) {
+  .cloudAbout {
+    background-size: 70% 50%;
+  }
+  .bottomAbout {
+    background-size: 100% 90%;
+  }
+  .kauji {
+    background-size: 80% 100%;
+  }
+  .mountainTopEvents {
+    background-size: 55% 40%;
+  }
+
+}
+
+.inner {
+  background: rgba(255, 255, 255, 0.6);
+  clip-path: polygon(50% 0%,
+      100% 30%,
+      100% 100%,
+      0% 100%,
+      0% 30%);
+}
 *{
     cursor: none;
 }
