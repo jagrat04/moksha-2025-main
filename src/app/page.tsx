@@ -33,7 +33,3 @@ const HorizontalScroll = () => {
 };
 
 export default HorizontalScroll;
-
-
-
-
