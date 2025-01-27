@@ -23,9 +23,9 @@ const CustomCursor = () => {
       var star = document.createElement("div");
 
       star.className = "star";
-      star.style.top = e.clientY + Math.round(Math.random() * x - x / 2) + "px";
+      star.style.top = e.clientY + Math.round(Math.random() * x - x / 2) + 20+ "px";
       star.style.left =
-        e.clientX + Math.round(Math.random() * x - x / 2) + "px";
+        e.clientX + Math.round(Math.random() * x - x / 2)  + "px";
 
       document.body.appendChild(star);
 
@@ -63,16 +63,15 @@ const CustomCursor = () => {
   return (
     <div
       style={{
-        top: position.y + 35,
-        left: position.x - 60,
-        backgroundImage: `url(/assets/cursor/wand.gif)`,
-        transform: "scaleX(-1) translate(-22%, -50%)",
-        width: "167px",
-        height: "93px",
+        top: position.y-5,
+        left: position.x-5,
+        backgroundImage: `url(/assets/cursor/animal.gif)`,
+        width: "100px",
+        height: "100px",
         display: visible ? "block" : "none",
       }}
       ref={cursorRef}
-      className="fixed pointer-events-none bg-cover transition-transform -translate-x-1/2 -translate-y-1/2 z-50"
+      className="fixed pointer-events-none bg-cover bg-center transition-transform -translate-x-1/2 -translate-y-1/2 z-50"
     />
   );
 };
