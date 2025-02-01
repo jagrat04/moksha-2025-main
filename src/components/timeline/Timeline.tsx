@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { number } from 'zod';
 
 export default function Timeline() {
   const scrollContainerRef = useRef<HTMLDivElement | null>(null); // Ref for the scroll container
@@ -16,6 +17,7 @@ export default function Timeline() {
   const [linesScale, setLinesScale] = useState<number[]>([]);
   const [linesOpacity, setLinesOpacity] = useState<number[]>([]);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [year, setYear] = useState<number>();
 
   const numberOfBoxes = 6;
   const totalScrollHeight = 3000;
@@ -70,31 +72,34 @@ export default function Timeline() {
       setScrollProgress(progress);
 
       const windowBottom = viewportHeight;
+      let mostVisibleBoxId = 1;
+      let maxScale = 0;
 
       setBoxes((prev) =>
         prev.map((box) => {
           const element = document.getElementById(`box-${box.id}`);
           if (!element) return box;
-
+  
           const rect = element.getBoundingClientRect();
           const distanceFromBottom = Math.abs(
-            rect.top + rect.height / 2 - windowBottom
+            rect.top + rect.height / 2 - viewportHeight
           );
-          const distanceFromRight = Math.abs(
-            rect.left + rect.width / 2 - viewportWidth
-          )
-
+  
           let opacity = 0;
           if (distanceFromBottom > 200) {
-            opacity = Math.max(
-              0,
-              1 - Math.pow(distanceFromBottom / viewportHeight, 3)
-            );
+            opacity = Math.max(0, 1 - Math.pow(distanceFromBottom / viewportHeight, 3));
           } else {
             opacity = 0;
           }
-
-          const scale = Math.max(0.5, (2 - ((distanceFromBottom / viewportHeight))));
+  
+          const scale = Math.max(0.5, 2 - distanceFromBottom / viewportHeight);
+  
+          if (scale > maxScale) {
+            maxScale = scale;
+            mostVisibleBoxId = box.id;
+          }
+          setYear(2019 + mostVisibleBoxId);
+  
           return { ...box, scale, opacity };
         })
       );
@@ -108,7 +113,10 @@ export default function Timeline() {
           const distanceFromBottom = Math.abs(
             rect.top + rect.height / 2 - windowBottom
           );
-          return Math.max(0.65, 2 - ((distanceFromBottom / viewportHeight) * 2));
+          if (viewportWidth<1000) return Math.max(0.65, 2 - ((distanceFromBottom / viewportHeight)*2)) ;
+          else return Math.max(0.65, 2 - ((distanceFromBottom / viewportHeight)*(viewportWidth/viewportHeight) *1.2));
+            
+          
         })
       );
 
@@ -132,6 +140,7 @@ export default function Timeline() {
           }
         })
       );
+      
     };
 
     container.addEventListener('scroll', handleScroll, { passive: true });
@@ -160,7 +169,7 @@ export default function Timeline() {
       />
 
       <div id ="neeche wala"
-      className="fixed sm:bottom-[2.5vh] bottom-[44.5vw] h-[4vh] bg-transparent w-2/3 left-[10vw]">
+      className="fixed sm:top-[92.5vh] top-[124.5vw] h-[4vh] bg-transparent w-4/5 left-[10vw]">
 
         <div id = "divisions"
         className="flex h-full">
@@ -168,7 +177,7 @@ export default function Timeline() {
           {Array.from({ length: 7 }, (_, i) => (
             <div
               key={i}
-              className="flex items-center justify-center w-96 text-white font-bold border-r border-gray-600"
+              className="flex items-center justify-center w-96 text-white font-bold text-[2vh] border-r border-gray-600"
             >
               {2017 + i}
             </div>
@@ -179,9 +188,10 @@ export default function Timeline() {
         style={{
           left: `${(scrollProgress * .8) + 10}vw`,
         }}
-        className=' w-[7vw] h-[3.25vw] bg-[url(/assets/timeline/sliderFrame.png)] bg-cover sm:bottom-[2.5vh] bottom-[46.5vw] fixed text-center text-white align'>
-          <p className='relative top-[.65vw]'>
+        className=' sm:w-[7vw] sm:h-[3.25vw] w-[19vw] h-[9.25vw] bg-[url(/assets/timeline/sliderFrame.png)] bg-cover sm:top-[92.5vh] top-[124vw] fixed text-center text-white align'>
+          <p className='relative text-[2vh] sm:top-[0.65vw] top-[1.65vw]'>
             {/* {scrollProgress} */}
+            {year}
             </p></div>
       <div id = "container"
         ref={scrollContainerRef}
